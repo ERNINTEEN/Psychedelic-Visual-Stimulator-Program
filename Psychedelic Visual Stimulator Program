@@ -1,0 +1,67 @@
+import pygame
+import sys
+import math
+import colorsys
+
+# Initialize Pygame
+pygame.init()
+
+# Set up the display
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Psychedelic Visual Stimulator")
+
+# Colors and constants
+CENTER = (WIDTH // 2, HEIGHT // 2)
+MAX_RADIUS = 200
+NUM_SHAPES = 50
+ROTATION_SPEED = 0.02  # Radians per frame
+PULSE_SPEED = 0.1  # Speed of pulsing effect
+
+# Game loop
+clock = pygame.time.Clock()
+running = True
+time = 0  # Time variable for animation
+
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Clear screen with black background
+    screen.fill((0, 0, 0))
+
+    # Increment time for animation
+    time += 0.1
+
+    # Draw psychedelic spiral
+    for i in range(NUM_SHAPES):
+        # Calculate radius and angle for each shape
+        radius = MAX_RADIUS * (i / NUM_SHAPES)
+        angle = i * 0.5 + time * ROTATION_SPEED
+
+        # Pulsing effect for size
+        size = 10 + 5 * math.sin(time * PULSE_SPEED + i * 0.2)
+
+        # Calculate position
+        x = CENTER[0] + radius * math.cos(angle)
+        y = CENTER[1] + radius * math.sin(angle)
+
+        # Generate psychedelic color using HSV
+        hue = (time * 0.05 + i * 0.1) % 1.0  # Cycle through hues
+        rgb = colorsys.hsv_to_rgb(hue, 1.0, 1.0)  # Full saturation and value
+        color = (int(rgb[0] * 255), int(rgb[1] * 255), int(rgb[2] * 255))
+
+        # Draw a circle
+        pygame.draw.circle(screen, color, (int(x), int(y)), int(size))
+
+    # Update display
+    pygame.display.flip()
+
+    # Control frame rate
+    clock.tick(60)  # 60 FPS
+
+# Quit Pygame
+pygame.quit()
+sys.exit()
