@@ -44,22 +44,7 @@ while running:
         # Pulsing effect for size
         size = 10 + 5 * math.sin(time * PULSE_SPEED + i * 0.2)
 
-        # Calculate position
-        x = CENTER[0] + radius * math.cos(angle)
-        y = CENTER[1] + radius * math.sin(angle)
-
-        # Generate psychedelic color using HSV
-        hue = (time * 0.05 + i * 0.1) % 1.0  # Cycle through hues
-        rgb = colorsys.hsv_to_rgb(hue, 1.0, 1.0)  # Full saturation and value
-        color = (int(rgb[0] * 255), int(rgb[1] * 255), int(rgb[2] * 255))
-
-        # Draw a circle
-        pygame.draw.circle(screen, color, (int(x), int(y)), int(size))
-
-    # Update display
-    pygame.display.flip()
-
-    # Control frame rate
+        
     clock.tick(60)  # 60 FPS
 
 # Quit Pygame
