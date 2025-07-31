@@ -1,0 +1,15 @@
+  # Draw psychedelic spiral
+    for i in range(NUM_SHAPES):
+        # Calculate radius and angle for each shape
+        radius = MAX_RADIUS * (i / NUM_SHAPES)
+        angle = i * 0.5 + time * ROTATION_SPEED
+
+        # Pulsing effect for size
+        size = 10 + 5 * math.sin(time * PULSE_SPEED + i * 0.2)
+
+        
+    clock.tick(60)  # 60 FPS
+
+# Quit Pygame
+pygame.quit()
+sys.exit()
