@@ -1,0 +1,11 @@
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Clear screen with black background
+    screen.fill((0, 0, 0))
+
+    # Increment time for animation
+    time += 0.1
