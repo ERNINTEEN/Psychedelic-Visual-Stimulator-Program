@@ -11,17 +11,6 @@ WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Psychedelic Visual Stimulator")
 
-# Colors and constants
-CENTER = (WIDTH // 2, HEIGHT // 2)
-MAX_RADIUS = 200
-NUM_SHAPES = 50
-ROTATION_SPEED = 0.02  # Radians per frame
-PULSE_SPEED = 0.1  # Speed of pulsing effect
-
-# Game loop
-clock = pygame.time.Clock()
-running = True
-time = 0  # Time variable for animation
 
 
 
