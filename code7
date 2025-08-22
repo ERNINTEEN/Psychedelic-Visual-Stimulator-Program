@@ -1,0 +1,7 @@
+import pygame
+import sys
+import math
+import colorsys
+
+# Initialize Pygame
+pygame.init()
