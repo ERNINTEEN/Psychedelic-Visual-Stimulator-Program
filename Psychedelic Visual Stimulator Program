@@ -1,7 +1,7 @@
 import pygame
 import sys
 import math
-import colorsys
+import colorsya
 
 # Initialize Pygame
 pygame.init()
